@@ -10,7 +10,7 @@ int diceval()
 }
 main_program
 {
-    initCanvas("Snakes And Ladders",1366,768);
+    initCanvas("Doors And Tunnels",1366,768);
 
     int cl,p1,p2,p3,p4,n,b,x,i,gx,gy,d,e=1;
     Turtle turt1,turt2,turt3,turt4;
@@ -49,13 +49,13 @@ main_program
     Rectangle background(683,384,1366,768);
 	background.setFill();
 
-    Text heading(683,50,"Snakes And Ladders");
+    Text heading(683,50,"Doors And Tunnels");
     heading.setColor(COLOR(0,0,255));
 
     Rectangle startr(683,384,200,100);
     startr.setColor(COLOR(0,255,0));
 
-    Text startt(683,384,"Start");
+    Text startt(683,384,"Click here to play");
     startt.setColor(COLOR(0,255,0));
 
     Rectangle exitr(1265,717,200,100);
@@ -70,7 +70,9 @@ main_program
         cl=getClick();
         if((cl/65536>=1165&&cl/65536<=1366)&&(cl%65536>=668&&cl%65536<=767))
         {
-            c=0; exitr.setFill(); wait(0.1);
+            c=0;
+            exitr.setFill();
+            wait(0.1);
         }
         else if((cl/65536>=583&&cl/65536<=783)&&(cl%65536>=334&&cl%65536<=434))
         {
@@ -78,6 +80,9 @@ main_program
             wait(0.1);
             startt.hide();
             startr.hide();
+
+            Text pt(683,200,"Choose the number of players");
+            pt.setColor(COLOR(255,255,255));
 
             Rectangle p2r(383,384,200,100);
             p2r.setColor(COLOR(0,255,0));
@@ -126,13 +131,14 @@ main_program
                 }
                 if (c>1)
                 {
+                    pt.hide();
                     p2t.hide();
                     p3t.hide();
                     p4t.hide();
                     p2r.hide();
                     p3r.hide();
                     p4r.hide();
-                    heading.hide();
+                    heading.moveTo(155,50);
 
 					Rectangle s1(345,675,70,70);
                     s1.setColor(COLOR(121,240,87));
@@ -642,10 +648,10 @@ main_program
                     r12.setColor(COLOR(158,158,158));
                     r12.setFill();
 
-                    Rectangle r21(695,535,20,160);
+					Rectangle r21(695,535,20,160);
                     r21.setColor(COLOR(158,158,158));
                     r21.setFill();
-                    Rectangle r22(515,465,370,20);
+                    Rectangle r22(520,465,370,20);
                     r22.setColor(COLOR(158,158,158));
                     r22.setFill();
 
@@ -684,6 +690,55 @@ main_program
                     r72.setColor(COLOR(158,158,158));
                     r72.setFill();
 
+                    Line l11(485,595,485,615);
+					l11.setColor(COLOR(255,20,0));
+					Line l12(485,615,475,605);
+					l12.setColor(COLOR(255,20,0));
+					Line l13(485,615,495,605);
+					l13.setColor(COLOR(255,20,0));
+
+                    Line l21(335,465,355,465);
+					l21.setColor(COLOR(255,20,0));
+					Line l22(355,465,345,455);
+					l22.setColor(COLOR(255,20,0));
+					Line l23(355,465,345,475);
+					l23.setColor(COLOR(255,20,0));
+
+                    Line l31(825,395,845,395);
+					l31.setColor(COLOR(255,20,0));
+					Line l32(845,395,835,385);
+					l32.setColor(COLOR(255,20,0));
+					Line l33(845,395,835,405);
+					l33.setColor(COLOR(255,20,0));
+
+                    Line l41(625,175,625,195);
+					l41.setColor(COLOR(255,20,0));
+					Line l42(625,195,615,185);
+					l42.setColor(COLOR(255,20,0));
+					Line l43(625,195,635,185);
+					l43.setColor(COLOR(255,20,0));
+
+                    Line l51(765,35,765,55);
+					l51.setColor(COLOR(255,20,0));
+					Line l52(765,55,755,45);
+					l52.setColor(COLOR(255,20,0));
+					Line l53(765,55,775,45);
+					l53.setColor(COLOR(255,20,0));
+
+                    Line l61(555,35,555,55);
+					l61.setColor(COLOR(255,20,0));
+					Line l62(555,55,545,45);
+					l62.setColor(COLOR(255,20,0));
+					Line l63(555,55,565,45);
+					l63.setColor(COLOR(255,20,0));
+
+                    Line l71(415,35,415,55);
+					l71.setColor(COLOR(255,20,0));
+					Line l72(415,55,405,45);
+					l72.setColor(COLOR(255,20,0));
+					Line l73(415,55,425,45);
+					l73.setColor(COLOR(255,20,0));
+
 					Rectangle d11(740,685,20,50);
 					d11.setColor(COLOR(170,163,121));
 					d11.setFill();
@@ -714,11 +769,18 @@ main_program
 					Circle d52(957,265,2);
 					d52.setFill();
 
+					Rectangle d61(670,125,20,50);
+					d61.setColor(COLOR(170,163,121));
+					d61.setFill();
+					Circle d62(677,125,2);
+					d62.setFill();
+
                     Rectangle dice(1266,418,120,120);
                     dice.setColor(COLOR(255,255,255));
                     dice.setFill();
-                    Text dicet(1266,300,"Dice");
+                    Text dicet(1266,300,"Click on Dice");
                     dicet.setColor(COLOR(255,255,255));
+
                     Circle d_1(1226,378,10);
                     d_1.setFill();
                     Circle d_3(1306,378,10);
@@ -733,6 +795,7 @@ main_program
                     d_7.setFill();
                     Circle d_9(1306,458,10);
                     d_9.setFill();
+
                     d_1.hide();
                     d_3.hide();
                     d_4.hide();
@@ -740,6 +803,20 @@ main_program
                     d_6.hide();
                     d_7.hide();
                     d_9.hide();
+
+                    Text rule11(155,300,"Rules:");
+                    rule11.setColor(COLOR(255,255,255));
+                    Text rule21(155,320,"Click on the dice to roll the dice");
+                    rule21.setColor(COLOR(255,255,255));
+                    Text rule31(155,340,"Pawn goes up to a location when on the tile");
+                    rule31.setColor(COLOR(255,255,255));
+                    Text rule32(155,350,"with the door");
+                    rule32.setColor(COLOR(255,255,255));
+                    Text rule41(155,370,"Pawn goes down the tunnel when on the tile");
+                    rule41.setColor(COLOR(255,255,255));
+                    Text rule42(155,380,"with the start of tunnel indicated by an arrow");
+                    rule42.setColor(COLOR(255,255,255));
+
                     while(c!=0)
                     {
                         if (c==2)
@@ -788,7 +865,9 @@ main_program
                                 cl=getClick();
                                 if((cl/65536>=1165&&cl/65536<=1366)&&(cl%65536>=668&&cl%65536<=767))
                                 {
-                                    c=0; exitr.setFill(); wait(0.1);
+                                    c=0;
+                                    exitr.setFill();
+                                    wait(0.1);
                                 }
                                 else if((cl/65536>=1206&&cl/65536<=1326)&&(cl%65536>=358&&cl%65536<=478))
                                 {
@@ -1180,11 +1259,25 @@ main_program
                                             if(p1==70)
                                             {
                                             	wait(0.3);
+                                            	turt1.left(90);
                                             	turt1.forward(210);
                                             	gx=turt1.getX();
                                             	gy=turt1.getY();
                                             	a1.moveTo(gx,gy);
                                             	p1=91;
+                                            }
+
+                                            if(p1==86)
+                                            {
+                                            	wait(0.3);
+                                            	turt1.left(90);
+                                            	turt1.forward(70);
+                                            	turt1.left(90);
+                                            	turt1.forward(70);
+                                            	gx=turt1.getX();
+                                            	gy=turt1.getY();
+                                            	a1.moveTo(gx,gy);
+                                            	p1=96;
                                             }
 
                                             x=2;
@@ -1441,11 +1534,25 @@ main_program
                                             if(p2==70)
                                             {
                                             	wait(0.3);
+                                            	turt2.left(90);
                                             	turt2.forward(210);
                                             	gx=turt2.getX();
                                             	gy=turt2.getY();
                                             	a2.moveTo(gx,gy);
                                             	p2=91;
+                                            }
+
+                                            if(p2==86)
+                                            {
+                                            	wait(0.3);
+                                            	turt2.left(90);
+                                            	turt2.forward(70);
+                                            	turt2.left(90);
+                                            	turt2.forward(70);
+                                            	gx=turt2.getX();
+                                            	gy=turt2.getY();
+                                            	a2.moveTo(gx,gy);
+                                            	p2=96;
                                             }
 
                                             x=1;
@@ -1460,7 +1567,9 @@ main_program
                                 cl=getClick();
                                 if((cl/65536>=1165&&cl/65536<=1366)&&(cl%65536>=668&&cl%65536<=767))
                                 {
-                                    c=0; exitr.setFill(); wait(0.1);
+                                    c=0;
+                                    exitr.setFill();
+                                    wait(0.1);
                                 }
                             }
                         }
@@ -1549,7 +1658,9 @@ main_program
                                 cl=getClick();
                                 if((cl/65536>=1165&&cl/65536<=1366)&&(cl%65536>=668&&cl%65536<=767))
                                 {
-                                    c=0; exitr.setFill(); wait(0.1);
+                                    c=0;
+                                    exitr.setFill();
+                                    wait(0.1);
                                 }
                                 else if((cl/65536>=1206&&cl/65536<=1326)&&(cl%65536>=358&&cl%65536<=478))
                                 {
@@ -1986,11 +2097,25 @@ main_program
                                             if(p1==70)
                                             {
                                             	wait(0.3);
+                                            	turt1.left(90);
                                             	turt1.forward(210);
                                             	gx=turt1.getX();
                                             	gy=turt1.getY();
                                             	a1.moveTo(gx,gy);
                                             	p1=91;
+                                            }
+
+                                            if(p1==86)
+                                            {
+                                            	wait(0.3);
+                                            	turt1.left(90);
+                                            	turt1.forward(70);
+                                            	turt1.left(90);
+                                            	turt1.forward(70);
+                                            	gx=turt1.getX();
+                                            	gy=turt1.getY();
+                                            	a1.moveTo(gx,gy);
+                                            	p1=96;
                                             }
 
                                             x=2;
@@ -2249,11 +2374,25 @@ main_program
                                             if(p2==70)
                                             {
                                             	wait(0.3);
+                                            	turt2.left(90);
                                             	turt2.forward(210);
                                             	gx=turt2.getX();
                                             	gy=turt2.getY();
                                             	a2.moveTo(gx,gy);
                                             	p2=91;
+                                            }
+
+                                            if(p2==86)
+                                            {
+                                            	wait(0.3);
+                                            	turt2.left(90);
+                                            	turt2.forward(70);
+                                            	turt2.left(90);
+                                            	turt2.forward(70);
+                                            	gx=turt2.getX();
+                                            	gy=turt2.getY();
+                                            	a2.moveTo(gx,gy);
+                                            	p2=96;
                                             }
 
                                             x=3;
@@ -2511,11 +2650,25 @@ main_program
                                             if(p3==70)
                                             {
                                             	wait(0.3);
+                                            	turt3.left(90);
                                             	turt3.forward(210);
                                             	gx=turt3.getX();
                                             	gy=turt3.getY();
                                             	a3.moveTo(gx,gy);
                                             	p3=91;
+                                            }
+
+                                            if(p3==86)
+                                            {
+                                            	wait(0.3);
+                                            	turt3.left(90);
+                                            	turt3.forward(70);
+                                            	turt3.left(90);
+                                            	turt3.forward(70);
+                                            	gx=turt3.getX();
+                                            	gy=turt3.getY();
+                                            	a3.moveTo(gx,gy);
+                                            	p3=96;
                                             }
 
                                             x=1;
@@ -2531,7 +2684,9 @@ main_program
                                 cl=getClick();
                                 if((cl/65536>=1165&&cl/65536<=1366)&&(cl%65536>=668&&cl%65536<=767))
                                 {
-                                    c=0; exitr.setFill(); wait(0.1);
+                                    c=0;
+                                    exitr.setFill();
+                                    wait(0.1);
                                 }
                             }
                         }
@@ -2683,7 +2838,9 @@ main_program
                                 cl=getClick();
                                 if((cl/65536>=1165&&cl/65536<=1366)&&(cl%65536>=668&&cl%65536<=767))
                                 {
-                                    c=0; exitr.setFill(); wait(0.1);
+                                    c=0;
+                                    exitr.setFill();
+                                    wait(0.1);
                                 }
                                 else if((cl/65536>=1206&&cl/65536<=1326)&&(cl%65536>=358&&cl%65536<=478))
                                 {
@@ -3167,11 +3324,25 @@ main_program
                                             if(p1==70)
                                             {
                                             	wait(0.3);
+                                            	turt1.left(90);
                                             	turt1.forward(210);
                                             	gx=turt1.getX();
                                             	gy=turt1.getY();
                                             	a1.moveTo(gx,gy);
                                             	p1=91;
+                                            }
+
+                                            if(p1==86)
+                                            {
+                                            	wait(0.3);
+                                            	turt1.left(90);
+                                            	turt1.forward(70);
+                                            	turt1.left(90);
+                                            	turt1.forward(70);
+                                            	gx=turt1.getX();
+                                            	gy=turt1.getY();
+                                            	a1.moveTo(gx,gy);
+                                            	p1=96;
                                             }
 
                                             x=2;
@@ -3437,6 +3608,19 @@ main_program
                                             	p2=91;
                                             }
 
+                                            if(p2==86)
+                                            {
+                                            	wait(0.3);
+                                            	turt2.left(90);
+                                            	turt2.forward(70);
+                                            	turt2.left(90);
+                                            	turt2.forward(70);
+                                            	gx=turt2.getX();
+                                            	gy=turt2.getY();
+                                            	a2.moveTo(gx,gy);
+                                            	p2=96;
+                                            }
+
                                             x=3;
                                             p1t.hide();
                                             p2t.hide();
@@ -3693,11 +3877,25 @@ main_program
                                             if(p3==70)
                                             {
                                             	wait(0.3);
+                                            	turt3.left(90);
                                             	turt3.forward(210);
                                             	gx=turt3.getX();
                                             	gy=turt3.getY();
                                             	a3.moveTo(gx,gy);
                                             	p3=91;
+                                            }
+
+                                            if(p3==86)
+                                            {
+                                            	wait(0.3);
+                                            	turt3.left(90);
+                                            	turt3.forward(70);
+                                            	turt3.left(90);
+                                            	turt3.forward(70);
+                                            	gx=turt3.getX();
+                                            	gy=turt3.getY();
+                                            	a3.moveTo(gx,gy);
+                                            	p3=96;
                                             }
 
                                             x=4;
@@ -3956,11 +4154,25 @@ main_program
                                             if(p4==70)
                                             {
                                             	wait(0.3);
+                                            	turt4.left(90);
                                             	turt4.forward(210);
                                             	gx=turt4.getX();
                                             	gy=turt4.getY();
                                             	a4.moveTo(gx,gy);
                                             	p4=91;
+                                            }
+
+                                            if(p4==86)
+                                            {
+                                            	wait(0.3);
+                                            	turt4.left(90);
+                                            	turt4.forward(70);
+                                            	turt4.left(90);
+                                            	turt4.forward(70);
+                                            	gx=turt4.getX();
+                                            	gy=turt4.getY();
+                                            	a4.moveTo(gx,gy);
+                                            	p4=96;
                                             }
 
                                             x=1;
@@ -3977,7 +4189,9 @@ main_program
                                 cl=getClick();
                                 if((cl/65536>=1165&&cl/65536<=1366)&&(cl%65536>=668&&cl%65536<=767))
                                 {
-                                    c=0; exitr.setFill(); wait(0.1);
+                                    c=0;
+                                    exitr.setFill();
+                                    wait(0.1);
                                 }
                             }
                         }
