@@ -12,7 +12,7 @@ main_program
 {
     initCanvas("Doors And Tunnels",1366,768);
 
-    int cl,p1,p2,p3,p4,n,b,x,i,gx,gy,d,e=1;
+    int cl,p1,p2,p3,p4,n,b,x,i,gx,gy,d,e=1,f;
     Turtle turt1,turt2,turt3,turt4;
 
     turt1.hide();
@@ -836,10 +836,10 @@ main_program
                             p1t.setColor(COLOR(255,0,0));
                             p2t.setColor(COLOR(0,0,255));
                             p2t.hide();
-                            Text w(100,100,"Winner");
+                            Text w(155,100,"Winner");
                             w.setColor(COLOR(255,255,255));
-                            Text p1w(100,200,"Player 1");
-                            Text p2w(100,200,"Player 2");
+                            Text p1w(155,200,"Player 1");
+                            Text p2w(155,200,"Player 2");
                             p1w.setColor(COLOR(255,0,0));
                             p2w.setColor(COLOR(0,0,255));
                             w.hide();
@@ -871,6 +871,7 @@ main_program
                                 }
                                 else if((cl/65536>=1206&&cl/65536<=1326)&&(cl%65536>=358&&cl%65536<=478))
                                 {
+                                	f=1;
                                     b=0;
                                     n=diceval();
                                     d_1.hide();
@@ -919,70 +920,71 @@ main_program
                                         d_7.show();
                                         d_9.show();
                                     }
-                                    for(i=1;i<=n;i++)
-                                    {
-                                        if(x==1)
-                                        {
-                                            if(p1==100)
-                                            {
-                                                turt1.right(90);
-                                                d=1;
-                                            }
-                                            if(p1%10==0)
-                                            {
-                                                if(p1%20==0)
-                                                turt1.right(90);
-                                                else
-                                                turt1.left(90);
-                                            }
-                                            if((p1!=1)&&(p1%10==1))
-                                            {
-                                                if(p1%20==1)
-                                                turt1.right(90);
-                                                else
-                                                turt1.left(90);
-                                            }
-                                            turt1.forward(70);
-                                            gx=turt1.getX();
-                                            gy=turt1.getY();
-                                            wait(0.1);
-                                            a1.moveTo(gx,gy);
-                                            if (d==1)
-                                            p1--;
-                                            else
-                                            p1++;
-                                        }
-                                        if(x==2)
-                                        {
-                                            if(p2==100)
-                                            {
-                                                turt2.right(90);
-                                                d=2;
-                                            }
-                                            if(p2%10==0)
-                                            {
-                                                if(p2%20==0)
-                                                turt2.right(90);
-                                                else
-                                                turt2.left(90);
-                                            }
-                                            if((p2!=1)&&(p2%10==1))
-                                            {
-                                                if(p2%20==1)
-                                                turt2.right(90);
-                                                else
-                                                turt2.left(90);
-                                            }
-                                            turt2.forward(70);
-                                            gx=turt2.getX();
-                                            gy=turt2.getY();
-                                            wait(0.1);
-                                            a2.moveTo(gx,gy);
-                                            if(d==2)
-                                            p2--;
-                                            else
-                                            p2++;
-                                        }
+                                    if((x==1)&&((p1+n)>100))
+                                    f=0;
+                                    if((x==2)&&((p2+n)>100))
+                                    f=0;
+                                    if(f==1)
+	                                {
+	                                	for(i=1;i<=n;i++)
+                                    	{
+                                        	if(x==1)
+                                        	{
+                                       		 	if(p1==100)
+                                            	{
+                                            	    turt1.right(90);
+                                            	    d=1;
+                                            	}
+                                            	if(p1%10==0)
+                                            	{
+                                            	    if(p1%20==0)
+                                            	    turt1.right(90);
+                                            	    else
+                                            	    turt1.left(90);
+                                            	}
+                                            	if((p1!=1)&&(p1%10==1))
+                                            	{
+                                            	    if(p1%20==1)
+                                            	    turt1.right(90);
+                                            	    else
+                                            	    turt1.left(90);
+                                            	}
+                                            	turt1.forward(70);
+                                            	gx=turt1.getX();
+                                            	gy=turt1.getY();
+                                           		wait(0.1);
+                                            	a1.moveTo(gx,gy);
+                                            	p1++;
+                                        	}
+		                                    if(x==2)
+		                                    {
+		                                    	if(p2==100)
+		                                        {
+		                                            turt2.right(90);
+		                                            d=2;
+		                                        }
+		                                        if(p2%10==0)
+		                                        {
+		                                            if(p2%20==0)
+		                                            turt2.right(90);
+		                                            else
+		                                            turt2.left(90);
+		                                        }
+		                                        if((p2!=1)&&(p2%10==1))
+		                                        {
+		                                            if(p2%20==1)
+		                                            turt2.right(90);
+		                                            else
+		                                            turt2.left(90);
+		                                        }
+		                                        turt2.forward(70);
+		                                        gx=turt2.getX();
+		                                        gy=turt2.getY();
+		                                        wait(0.1);
+		                                        a2.moveTo(gx,gy);
+		                                        p2++;
+		                                    }
+                                    	}
                                     }
                                     if(p1==100)
                                     {
@@ -1599,9 +1601,9 @@ main_program
                             p3t.hide();
                             Text w(100,100,"Winner");
                             w.setColor(COLOR(255,255,255));
-                            Text p1w(100,200,"Player 1");
-                            Text p2w(100,200,"Player 2");
-                            Text p3w(100,200,"Player 3");
+                            Text p1w(155,200,"Player 1");
+                            Text p2w(155,200,"Player 2");
+                            Text p3w(155,200,"Player 3");
                             p1w.setColor(COLOR(255,0,0));
                             p2w.setColor(COLOR(0,0,255));
                             p3w.setColor(COLOR(238,130,238));
@@ -1665,6 +1667,7 @@ main_program
                                 else if((cl/65536>=1206&&cl/65536<=1326)&&(cl%65536>=358&&cl%65536<=478))
                                 {
                                     b=0;
+                                    f=1;
                                     n=diceval();
                                     d_1.hide();
                                     d_3.hide();
@@ -1712,102 +1715,102 @@ main_program
                                         d_7.show();
                                         d_9.show();
                                     }
-                                    for(i=1;i<=n;i++)
-                                    {
-                                        if(x==1)
-                                        {
-                                            if(p1==100)
-                                            {
-                                                turt1.right(90);
-                                                d=1;
-                                            }
-                                            if(p1%10==0)
-                                            {
-                                                if(p1%20==0)
-                                                turt1.right(90);
-                                                else
-                                                turt1.left(90);
-                                            }
-                                            if((p1!=1)&&(p1%10==1))
-                                            {
-                                                if(p1%20==1)
-                                                turt1.right(90);
-                                                else
-                                                turt1.left(90);
-                                            }
-                                            turt1.forward(70);
-                                            gx=turt1.getX();
-                                            gy=turt1.getY();
-                                            wait(0.1);
-                                            a1.moveTo(gx,gy);
-                                            if (d==1)
-                                            p1--;
-                                            else
-                                            p1++;
-                                        }
-                                        if(x==2)
-                                        {
-                                            if(p2==100)
-                                            {
-                                                turt2.right(90);
-                                                d=2;
-                                            }
-                                            if(p2%10==0)
-                                            {
-                                                if(p2%20==0)
-                                                turt2.right(90);
-                                                else
-                                                turt2.left(90);
-                                            }
-                                            if((p2!=1)&&(p2%10==1))
-                                            {
-                                                if(p2%20==1)
-                                                turt2.right(90);
-                                                else
-                                                turt2.left(90);
-                                            }
-                                            turt2.forward(70);
-                                            gx=turt2.getX();
-                                            gy=turt2.getY();
-                                            wait(0.1);
-                                            a2.moveTo(gx,gy);
-                                            if(d==2)
-                                            p2--;
-                                            else
-                                            p2++;
-                                        }
-                                        if(x==3)
-                                        {
-                                            if(p3==100)
-                                            {
-                                                turt3.right(90);
-                                                d=3;
-                                            }
-                                            if(p3%10==0)
-                                            {
-                                                if(p3%20==0)
-                                                turt3.right(90);
-                                                else
-                                                turt3.left(90);
-                                            }
-                                            if((p3!=1)&&(p3%10==1))
-                                            {
-                                                if(p3%20==1)
-                                                turt3.right(90);
-                                                else
-                                                turt3.left(90);
-                                            }
-                                            turt3.forward(70);
-                                            gx=turt3.getX();
-                                            gy=turt3.getY();
-                                            wait(0.1);
-                                            a3.moveTo(gx,gy);
-                                            if(d==3)
-                                            p3--;
-                                            else
-                                            p3++;
-                                        }
-                                    }
+                                    if((x==1)&&((p1+n)>100))
+                                    f=0;
+                                    if((x==2)&&((p2+n)>100))
+                                    f=0;
+                                    if((x==3)&&((p3+n)>100))
+                                    f=0;
+                                    if(f==1)
+	                                {
+		                                for(i=1;i<=n;i++)
+		                                {
+		                                    if(x==1)
+		                                    {
+		                                        if(p1==100)
+		                                        {
+		                                            turt1.right(90);
+		                                            d=1;
+		                                        }
+		                                        if(p1%10==0)
+		                                        {
+		                                            if(p1%20==0)
+		                                            turt1.right(90);
+		                                            else
+		                                            turt1.left(90);
+		                                        }
+		                                        if((p1!=1)&&(p1%10==1))
+		                                        {
+		                                            if(p1%20==1)
+		                                            turt1.right(90);
+		                                            else
+		                                            turt1.left(90);
+		                                        }
+		                                        turt1.forward(70);
+		                                        gx=turt1.getX();
+		                                        gy=turt1.getY();
+		                                        wait(0.1);
+		                                        a1.moveTo(gx,gy);
+		                                        p1++;
+		                                    }
+		                                    if(x==2)
+		                                    {
+		                                        if(p2==100)
+		                                        {
+		                                            turt2.right(90);
+		                                            d=2;
+		                                        }
+		                                        if(p2%10==0)
+		                                        {
+		                                            if(p2%20==0)
+		                                            turt2.right(90);
+		                                            else
+		                                            turt2.left(90);
+		                                        }
+		                                        if((p2!=1)&&(p2%10==1))
+		                                        {
+		                                            if(p2%20==1)
+		                                            turt2.right(90);
+		                                            else
+		                                            turt2.left(90);
+		                                        }
+		                                        turt2.forward(70);
+		                                        gx=turt2.getX();
+		                                        gy=turt2.getY();
+		                                        wait(0.1);
+		                                        a2.moveTo(gx,gy);
+		                                        p2++;
+		                                    }
+		                                    if(x==3)
+		                                    {
+		                                        if(p3==100)
+		                                        {
+		                                            turt3.right(90);
+		                                            d=3;
+		                                        }
+		                                        if(p3%10==0)
+		                                        {
+		                                            if(p3%20==0)
+		                                            turt3.right(90);
+		                                            else
+		                                            turt3.left(90);
+		                                        }
+		                                        if((p3!=1)&&(p3%10==1))
+		                                        {
+		                                            if(p3%20==1)
+		                                            turt3.right(90);
+		                                            else
+		                                            turt3.left(90);
+		                                        }
+		                                        turt3.forward(70);
+		                                        gx=turt3.getX();
+		                                        gy=turt3.getY();
+		                                        wait(0.1);
+		                                        a3.moveTo(gx,gy);
+		                                        p3++;
+		                                    }
+		                                }
+		                            }
                                     if(p1==100)
                                     {
                                         w.show();
@@ -2723,10 +2726,10 @@ main_program
                             p4t.hide();
                             Text w(100,100,"Winner");
                             w.setColor(COLOR(255,255,255));
-                            Text p1w(100,200,"Player 1");
-                            Text p2w(100,200,"Player 2");
-                            Text p3w(100,200,"Player 3");
-                            Text p4w(100,200,"Player 3");
+                            Text p1w(155,200,"Player 1");
+                            Text p2w(155,200,"Player 2");
+                            Text p3w(155,200,"Player 3");
+                            Text p4w(155,200,"Player 3");
                             p1w.setColor(COLOR(255,0,0));
                             p2w.setColor(COLOR(0,0,255));
                             p3w.setColor(COLOR(238,130,238));
@@ -2845,6 +2848,7 @@ main_program
                                 else if((cl/65536>=1206&&cl/65536<=1326)&&(cl%65536>=358&&cl%65536<=478))
                                 {
                                     b=0;
+                                    f=1;
                                     n=diceval();
                                     d_1.hide();
                                     d_3.hide();
@@ -2892,134 +2896,133 @@ main_program
                                         d_7.show();
                                         d_9.show();
                                     }
-                                    for(i=1;i<=n;i++)
-                                    {
-                                        if(x==1)
-                                        {
-                                            if(p1==100)
-                                            {
-                                                turt1.right(90);
-                                                d=1;
-                                            }
-                                            if(p1%10==0)
-                                            {
-                                                if(p1%20==0)
-                                                turt1.right(90);
-                                                else
-                                                turt1.left(90);
-                                            }
-                                            if((p1!=1)&&(p1%10==1))
-                                            {
-                                                if(p1%20==1)
-                                                turt1.right(90);
-                                                else
-                                                turt1.left(90);
-                                            }
-                                            turt1.forward(70);
-                                            gx=turt1.getX();
-                                            gy=turt1.getY();
-                                            wait(0.1);
-                                            a1.moveTo(gx,gy);
-                                            if (d==1)
-                                            p1--;
-                                            else
-                                            p1++;
-                                        }
-                                        if(x==2)
-                                        {
-                                            if(p2==100)
-                                            {
-                                                turt2.right(90);
-                                                d=2;
-                                            }
-                                            if(p2%10==0)
-                                            {
-                                                if(p2%20==0)
-                                                turt2.right(90);
-                                                else
-                                                turt2.left(90);
-                                            }
-                                            if((p2!=1)&&(p2%10==1))
-                                            {
-                                                if(p2%20==1)
-                                                turt2.right(90);
-                                                else
-                                                turt2.left(90);
-                                            }
-                                            turt2.forward(70);
-                                            gx=turt2.getX();
-                                            gy=turt2.getY();
-                                            wait(0.1);
-                                            a2.moveTo(gx,gy);
-                                            if(d==2)
-                                            p2--;
-                                            else
-                                            p2++;
-                                        }
-                                        if(x==3)
-                                        {
-                                            if(p3==100)
-                                            {
-                                                turt3.right(90);
-                                                d=3;
-                                            }
-                                            if(p3%10==0)
-                                            {
-                                                if(p3%20==0)
-                                                turt3.right(90);
-                                                else
-                                                turt3.left(90);
-                                            }
-                                            if((p3!=1)&&(p3%10==1))
-                                            {
-                                                if(p3%20==1)
-                                                turt3.right(90);
-                                                else
-                                                turt3.left(90);
-                                            }
-                                            turt3.forward(70);
-                                            gx=turt3.getX();
-                                            gy=turt3.getY();
-                                            wait(0.1);
-                                            a3.moveTo(gx,gy);
-                                            if(d==3)
-                                            p3--;
-                                            else
-                                            p3++;
-                                        }
-                                        if(x==4)
-                                        {
-                                            if(p4==100)
-                                            {
-                                                turt4.right(90);
-                                                d=4;
-                                            }
-                                            if(p4%10==0)
-                                            {
-                                                if(p4%20==0)
-                                                turt4.right(90);
-                                                else
-                                                turt4.left(90);
-                                            }
-                                            if((p4!=1)&&(p4%10==1))
-                                            {
-                                                if(p4%20==1)
-                                                turt4.right(90);
-                                                else
-                                                turt4.left(90);
-                                            }
-                                            turt4.forward(70);
-                                            gx=turt4.getX();
-                                            gy=turt4.getY();
-                                            wait(0.1);
-                                            a4.moveTo(gx,gy);
-                                            if(d==4)
-                                            p4--;
-                                            else
-                                            p4++;
-                                        }
-                                    }
-                                    if(p1==100)
+                                    if((x==1)&&((p1+n)>100))
+                                    f=0;
+                                    if((x==2)&&((p2+n)>100))
+                                    f=0;
+                                    if((x==3)&&((p3+n)>100))
+                                    f=0;
+                                    if((x==4)&&((p4+n)>100))
+                                    f=0;
+                                    if(f==1)
+	                                {
+		                                for(i=1;i<=n;i++)
+		                                {
+		                                    if(x==1)
+		                                    {
+		                                        if(p1==100)
+		                                        {
+		                                            turt1.right(90);
+		                                            d=1;
+		                                        }
+		                                        if(p1%10==0)
+		                                        {
+		                                            if(p1%20==0)
+		                                            turt1.right(90);
+		                                            else
+		                                            turt1.left(90);
+		                                        }
+		                                        if((p1!=1)&&(p1%10==1))
+		                                        {
+		                                            if(p1%20==1)
+		                                            turt1.right(90);
+		                                            else
+		                                            turt1.left(90);
+		                                        }
+		                                        turt1.forward(70);
+		                                        gx=turt1.getX();
+		                                        gy=turt1.getY();
+		                                        wait(0.1);
+		                                        a1.moveTo(gx,gy);
+		                                        p1++;
+		                                    }
+		                                    if(x==2)
+		                                    {
+		                                        if(p2==100)
+		                                        {
+		                                            turt2.right(90);
+		                                            d=2;
+		                                        }
+		                                        if(p2%10==0)
+		                                        {
+		                                            if(p2%20==0)
+		                                            turt2.right(90);
+		                                            else
+		                                            turt2.left(90);
+		                                        }
+		                                        if((p2!=1)&&(p2%10==1))
+		                                        {
+		                                            if(p2%20==1)
+		                                            turt2.right(90);
+		                                            else
+		                                            turt2.left(90);
+		                                        }
+		                                        turt2.forward(70);
+		                                        gx=turt2.getX();
+		                                        gy=turt2.getY();
+		                                        wait(0.1);
+		                                        a2.moveTo(gx,gy);
+		                                        p2++;
+		                                    }
+		                                    if(x==3)
+		                                    {
+		                                        if(p3==100)
+		                                        {
+		                                            turt3.right(90);
+		                                            d=3;
+		                                        }
+		                                        if(p3%10==0)
+		                                        {
+		                                            if(p3%20==0)
+		                                            turt3.right(90);
+		                                            else
+		                                            turt3.left(90);
+		                                        }
+		                                        if((p3!=1)&&(p3%10==1))
+		                                        {
+		                                            if(p3%20==1)
+		                                            turt3.right(90);
+		                                            else
+		                                            turt3.left(90);
+		                                        }
+		                                        turt3.forward(70);
+		                                        gx=turt3.getX();
+		                                        gy=turt3.getY();
+		                                        wait(0.1);
+		                                        a3.moveTo(gx,gy);
+		                                        p3++;
+		                                    }
+		                                    if(x==4)
+		                                    {
+		                                        if(p4==100)
+		                                        {
+		                                            turt4.right(90);
+		                                            d=4;
+		                                        }
+		                                        if(p4%10==0)
+		                                        {
+		                                            if(p4%20==0)
+		                                            turt4.right(90);
+		                                            else
+		                                            turt4.left(90);
+		                                        }
+		                                        if((p4!=1)&&(p4%10==1))
+		                                        {
+		                                            if(p4%20==1)
+		                                            turt4.right(90);
+		                                            else
+		                                            turt4.left(90);
+		                                        }
+		                                        turt4.forward(70);
+		                                        gx=turt4.getX();
+		                                        gy=turt4.getY();
+		                                        wait(0.1);
+		                                        a4.moveTo(gx,gy);
+		                                        p4++;
+		                                    }
+		                                }
+		                            }
+		                            if(p1==100)
                                     {
                                         w.show();
                                         turn.hide();
